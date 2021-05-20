@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+int linearSearch(int a[],int n,int key)
+{
+	
+	for(int i=0;i<n;i++)
+	{
+		if(key==a[i])
+		{
+			return i;
+			break;
+		}
+	}
+	
+	return -1;
+}
+int binarySearch(int a[],int n,int key)
+{
+	int l=0,u=n;
+	while(l<u)
+	{
+		int mid=(l+u)/2;
+		if(a[mid]==key)
+		{
+			return mid;
+		}
+		else if(a[mid]>key)
+		{
+			u=mid-1;
+		}
+		else
+		{
+			l=mid+1;
+		}
+	}
+	return -1;	
+}
+int main()
+{
+	int a[5]={1,2,3,4,5};
+	int key=5;
+	int ls=linearSearch(a,5,key);
+	if(ls!=-1)
+	{
+		cout<<"Found at index : "<<ls<<" using linear search"<<endl;
+	}
+	else{
+		cout<<"Not found using linear search"<<endl;
+	}
+	
+	int bs=binarySearch(a,5,key);
+	if(bs!=-1)
+	{
+		cout<<"Found at index : "<<bs<<" using binary search"<<endl;
+	}
+	else{
+		cout<<"Not found using binary search";
+	}
+	return 0;
+}
