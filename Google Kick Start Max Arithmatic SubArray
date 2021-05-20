@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int a[7]={10,2,4,6,8,10,12};
+  //storing the difference of the first two element.
+	int diff=a[1]-a[0];
+  
+  //smalles subarray to find the diff will be 2 for sure.
+	int counter=2;
+	int m=INT_MIN;
+	for(int i=2;i<7;i++)
+	{
+		int temp=a[i]-a[i-1];
+		if(diff==temp)
+			{
+				counter++;	
+			}
+		else
+		{
+			diff=temp;
+			counter=2;
+		}
+    
+    //keep track of max value 
+		m=max(m,counter);
+		
+		
+	}
+  
+  //finally print the max length of Arithmatic Sub array
+	cout<<m;
+	return 0;
+}
