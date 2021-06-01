@@ -1,0 +1,39 @@
+//Here you will be given an array which is representing the height of i th building
+//You have to find out the maximum water trapped in between the buildings
+//here we will be using the stack to solve the question.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int RainwaterTrapped(int arr[],int n)
+{
+	stack<int> st;
+	int ans=0;
+	
+	for(int i=0;i<n;i++)
+	{
+		while(!st.empty() && arr[i]>arr[st.top()])
+		{
+			int top=st.top();
+			st.pop();
+			if(st.empty())
+			{
+				break;
+			}
+			int d=i-st.top()-1;
+			int height=min(arr[i],arr[st.top()])-arr[top];
+			ans+=d*height;
+		}
+		st.push(i);
+	}
+	return ans;
+}
+int main()
+{
+int n=12;
+int arr[n]={0,1,0,2,1,0,1,3,2,1,2,1};
+	
+	cout<<"Max rainwater trapped is :- "<<RainwaterTrapped(arr,n);
+
+	return 0;
+}
