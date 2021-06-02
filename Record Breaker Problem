@@ -1,3 +1,6 @@
+//Here We have to find all the days whose previous and after  days values are less than the given day
+//If it is the first day then its after day value shold be less and if it is last then all previous days values should be less 
+
 #include<bits/stdc++.h>
 using namespace std;
 int main()
