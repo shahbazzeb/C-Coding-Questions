@@ -1,3 +1,6 @@
+//Here We have to find out max subArray which is in Arithmeti Progression
+//Google kick Start Famous Question soved only on array 
+
 #include<bits/stdc++.h>
 using namespace std;
 int main()
